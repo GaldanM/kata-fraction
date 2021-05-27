@@ -19,4 +19,7 @@ describe("additions", () => {
     expect(fractionResult.getNumerator()).toStrictEqual(11);
     expect(fractionResult.getDenominator()).toStrictEqual(10);
   });
+  it("should throw on 0 as numerator", () => {
+    expect(() => new Fraction(0, 2)).toThrow("numerator_null");
+  });
 });

@@ -3,7 +3,12 @@ class Fraction {
   private readonly denominator: number;
 
   constructor(numerator: number, denominator: number) {
+    if (numerator === 0) {
+      throw Error("numerator_null");
+    }
+
     const gcd = this.computeGcd(numerator, denominator);
+
     this.numerator = numerator / gcd;
     this.denominator = denominator / gcd;
   }
