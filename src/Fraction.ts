@@ -3,8 +3,9 @@ class Fraction {
   private readonly denominator: number;
 
   constructor(numerator: number, denominator: number) {
-    this.numerator = numerator;
-    this.denominator = denominator;
+    const gcd = this.computeGcd(numerator, denominator);
+    this.numerator = numerator / gcd;
+    this.denominator = denominator / gcd;
   }
 
   getNumerator(): number {
@@ -15,7 +16,18 @@ class Fraction {
   }
 
   add(fractionToAdd: Fraction): Fraction {
-    return new Fraction(5, 4);
+    const sumNumerator = this.numerator * fractionToAdd.denominator + fractionToAdd.numerator * this.denominator;
+    const sumDenominator = this.denominator * fractionToAdd.denominator;
+
+    return new Fraction(sumNumerator, sumDenominator);
+  }
+
+  private computeGcd(numerator: number, denominator: number): number {
+    if (denominator === 0) {
+      return numerator;
+    }
+
+    return this.computeGcd(denominator, numerator % denominator);
   }
 }
 
