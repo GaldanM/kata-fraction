@@ -6,6 +6,9 @@ class Fraction {
     if (numerator === 0) {
       throw Error("numerator_null");
     }
+    if (denominator === 0) {
+      throw Error("denominator_null");
+    }
 
     const gcd = this.computeGcd(numerator, denominator);
 

@@ -22,4 +22,7 @@ describe("additions", () => {
   it("should throw on 0 as numerator", () => {
     expect(() => new Fraction(0, 2)).toThrow("numerator_null");
   });
+  it("should throw on 0 as denominator", () => {
+    expect(() => new Fraction(2, 0)).toThrow("denominator_null");
+  });
 });
